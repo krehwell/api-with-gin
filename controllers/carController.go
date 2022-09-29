@@ -2,7 +2,6 @@ package controllers
 
 import (
 	"errors"
-	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -56,11 +55,6 @@ func EditCar(ctx *gin.Context) {
 			struct{ Code, Message string }{Code: "231", Message: bindErr.Error()})
 		return
 	}
-
-	for _, v := range cars {
-		fmt.Printf("%p\n", &v)
-	}
-	fmt.Printf("%p\n", &car)
 
 	ctx.JSON(http.StatusOK, car)
 }
